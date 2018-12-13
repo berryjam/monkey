@@ -1,4 +1,4 @@
-package monkey // import "bou.ke/monkey"
+package monkey //
 
 import (
 	"fmt"
@@ -84,7 +84,7 @@ func patchValue(target, replacement reflect.Value) {
 		unpatch(target.Pointer(), patch)
 	}
 
-	bytes := replaceFunction(target.Pointer(), (uintptr)(getPtr(replacement)))
+	bytes := replaceFunction(target.Pointer(), replacement.Pointer())
 	patches[target.Pointer()] = patch{bytes, &replacement}
 }
 
